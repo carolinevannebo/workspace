@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Superheroes</title>
+    <link rel="stylesheet" href="css/superheroes.css">
+
+    <!--  
+        Må huske å ha attributtet type="module" for å bruke modul-systemet.
+        Må huske å ha med attributtet defer for å gjøre det mulig å ha script i head. defer gjør at script først kjøres etter at DOM (Document Object Model - les: HTML-objektene/elementene) er ferdigstilt.
+    -->
+    <script type="module" defer src="scripts/superheroes.js"></script>
+</head>
+<body>
+    
+
+    <div>
+
+        <header>
+            <a href="#nogo">Superheroes</a>
+        </header>
+
+        <main>
+
+            <section>
+                <button id="show-all-btn">Vis alle</button>
+                <button id="show-bad-guys-btn">Vis slemme</button>
+                <button id="show-good-guys-btn">Vis snille</button>
+                <button id="show-sorted-by-good-btn">Vis sortert etter snill</button>
+            </section>
+
+            <!-- Dette er seksjonen som vi skriver ut innhold til -->
+            <section id="superheroes-output"></section>
+
+        </main>
+
+        <footer>
+
+        </footer>
+
+    </div>
+
+</body>
+</html>

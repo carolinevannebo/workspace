@@ -1,0 +1,424 @@
+html {
+    transition: color 1s, background-color 1s;
+}
+
+html[data-theme='dark'] .product-img {
+   filter: invert(1) hue-rotate(180deg) !important;
+}
+
+html[data-theme='dark']:not(.product-img) { /*:not() isnt working. The pictures inverts and then inverts back, I need to find a better solution because I dont like this transition*/
+    background: rgb(219, 214, 210);
+    color: rgb(73, 70, 70);
+    filter: invert(1) hue-rotate(180deg);
+}
+
+
+* {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: rgb(219, 214, 210);
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: rgba(219, 214, 210, 0.935);
+    width: 100vw;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    overflow: hidden;
+    z-index: 2;
+}
+
+header h1 {
+    font-size: 4rem;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    margin-top: 3vh;
+    justify-content: space-between;
+}
+
+li {
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
+    padding: 15px;
+    transition: ease-in-out;
+    /*animation-play-state: paused;
+    animation: liAnimation 1s reverse 1;*/
+}
+
+li:hover {
+    background-repeat: no-repeat;
+    background-image:   linear-gradient(to right, rgb(147, 144, 141) 100%, rgb(147, 144, 141) 100%),
+                        linear-gradient(to bottom, rgb(147, 144, 141) 100%, rgb(147, 144, 141) 100%),
+                        linear-gradient(to right, rgb(147, 144, 141) 100%, rgb(147, 144, 141) 100%),
+                        linear-gradient(to bottom, rgb(147, 144, 141) 100%, rgb(147, 144, 141) 100%);
+    background-size:    100% 1px,
+                        1px 100%,
+                        100% 1px,
+                        1px 100%;
+    background-position:    0 0,
+                            100% 0,
+                            100% 100%,
+                            0 100%;
+    animation: liAnimation 1s cubic-bezier(0.19, 1, 0.22, 1) 1;
+    /*animation-play-state: running;*/
+}
+
+main {
+    margin-top: 30vh;
+    height: 150vh;
+    padding: 1vh 1vw 1vh 1vw;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: repeat(3, 1fr);
+    grid-row-gap: 20px;
+    justify-content: stretch;
+    align-content: stretch;
+}
+
+section {
+    display: grid;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+}
+
+.upper-section {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.middle-section {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+}
+
+.bottom-section {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    padding-bottom: 20px;
+}
+
+article {
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(187, 183, 179);
+}
+
+.content {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-left: 10px;
+}
+
+.banner .content {
+    background-image: url(../media/Ellipse.svg);
+    object-position: cover;
+    background-repeat: no-repeat;
+    background-position: bottom -60px right -30px;
+}
+
+.add {
+    padding: 20px;
+    align-self: flex-end;
+    transition: ease-in-out .75s;
+}
+
+.add:hover {
+    transform: scale(1.75);
+}
+
+.add1 {
+    width: 25px;
+}
+
+.add2 {
+    width: 15px;
+}
+
+.visit-btn {
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: .5px;
+    width: 25%;
+    height: 10%;
+    margin: 10% 5% 10% 50%;
+    background-color: rgb(187, 183, 179);
+    color: rgb(88, 85, 83);
+    border: 1.5px solid rgb(147, 144, 141);
+    box-shadow: rgba(79, 78, 75, 0.671);
+    border-radius: 15px;
+    text-transform: uppercase;
+    transition: ease-in-out .75s;
+}
+
+.visit-btn:hover {
+    color: rgb(187, 183, 179);
+    border: 1.5px solid rgb(187, 183, 179);
+    background-color: transparent;
+}
+
+h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.5rem;
+    border-bottom: 1px solid;
+}
+
+.upper-section h1 {
+    width: 13.5vw;
+}
+
+.middle-section h1 {
+    width: 18vw;
+}
+
+.bottom-section h1 {
+    width: 9vw;
+}
+
+p {
+    padding-top: 1vh;
+}
+
+.bottom-section p{
+    font-size: .75rem;
+}
+
+.containImg {
+    height: 100%;
+    width: 50%;
+    overflow: hidden;
+}
+
+.containImg img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: ease-in-out 1s;
+}
+
+.containImg img:hover {
+    transform: scale(1.05);
+}
+
+/*.product-img {
+    filter: invert(0%);
+}
+
+.product-img::after {
+    filter: invert(0%);
+}*/
+
+@media (max-width: 1090px) {
+
+    .upper-section p, .bottom-section p {
+        font-size: .75rem;
+    }
+
+    .banner .content {
+        background-position: bottom -120px right -60px;
+    }
+
+    .middle-section h1 {
+        font-size: 1.25rem;
+        width: 90%;
+    }
+
+    .visit-btn {
+        height: 15%;
+        width: 30%;
+        border-radius: 20px;
+    }
+
+    .bottom-section {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    }
+
+    .bottom-section h1 {
+        width: 13.5vw;
+    }
+
+    .add2 {
+        width: 25px;
+    }
+}
+
+@media (max-width: 900px) {
+
+    header {
+        height: 20vh;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    header li {
+        padding: 10px;
+        font-size: .75rem;
+    }
+
+    main {
+        margin-top: 20vh;
+    }
+
+    .banner .content {
+        background-position: bottom -240px right -120px;
+    }
+
+    .visit-btn {
+        height: 10%;
+    }
+
+    .banner .content p {
+        font-size: .75rem;
+    }
+}
+
+@media (max-width: 860px) {
+
+    header h1 {
+        padding-top: 4vh;
+        font-size: 2rem;
+    }
+
+    li {
+        padding-bottom: 4vh;
+    }
+
+    .upper-section, .bottom-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    article {
+        min-height: 223px;
+    }
+    .middle-section h1 {
+        font-size: 1.25rem;
+    }
+
+    .upper-section h1, .bottom-section h1 {
+        width: 18vw;
+    }
+
+    .visit-btn {
+        font-size: .75rem;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .upper-section, .bottom-section {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: auto;
+    }
+
+    .upper-section h1, .bottom-section h1 {
+        font-size: 1.5rem;
+        width: 80%;
+    }
+
+    .middle-section {
+        display: none;
+    }
+
+    article {
+        max-height: 260px;
+    }
+}
+
+@media (max-width: 420px) {
+    
+    header {
+        height: 15vh;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    li {
+        padding-bottom: 2.5vh;
+    }
+
+    main {
+        margin-top: 15vh;
+    }
+}
+
+@keyframes liAnimation {
+    0% {
+        background-size:    0 1px,
+                            1px 0,
+                            0 1px,
+                            1px 0;
+    }
+    25% {
+        background-size:    100% 1px,
+                            1px 0,
+                            0 1px,
+                            1px 0;
+    }
+    50% {
+        background-size:    100% 1px,
+                            1px 100%,
+                            0 1px,
+                            1px 0;
+    }
+    75% {
+        background-size:    100% 1px,
+                            1px 100%,
+                            100% 1px,
+                            1px 0;
+    }
+    100% {
+        background-size:    100% 1px,
+                            1px 100%,
+                            100% 1px,
+                            1px 100%;
+    }/*
+    50% {
+        background-size:    100% 1px,
+                            1px 100%,
+                            100% 1px,
+                            1px 0;
+    }
+    61% {
+        background-size:    100% 1px,
+                            1px 100%,
+                            0 1px,
+                            1px 0;
+    }
+    73% {
+        background-size:    100% 1px,
+                            1px 0,
+                            0 1px,
+                            1px 0;
+    }
+    100% {
+        background-size:    0 1px,
+                            1px 0,
+                            0 1px,
+                            1px 0;
+    }*/
+}

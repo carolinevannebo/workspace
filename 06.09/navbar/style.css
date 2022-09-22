@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-navigation {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.main-navigation_link {
+    display: block;
+    padding: 20px;
+    background-color: rgb(0, 50, 100);
+    color: rgb(150, 200, 250);
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(30, 30, 30);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .box {
+    width: 100px;
+    height: 100px;
+    background-color: aliceblue;
+}

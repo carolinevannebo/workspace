@@ -1,0 +1,22 @@
+/* Block */
+
+.button{
+    padding: 15px;
+    cursor: pointer;
+    border: 1px solid rgb(200, 200, 200);
+    background-color: #ffff;
+    border-radius: 15px;
+}
+
+/*modifier*/
+.button--buy{
+    background-color: rgb(75, 150, 75);
+    border-color: rgb(60, 120, 60);
+    color: rgb(255, 255, 255);
+    transition: all 0.7s;
+}
+
+.button--buy:hover{
+    background-color: rgb(255,255,255);
+    color: rgb(75, 150, 75);
+}

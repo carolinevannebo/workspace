@@ -1,0 +1,12 @@
+main {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+}
+article {
+    width: 50vw;
+}
+
+article img {
+    width: 50vw;
+}

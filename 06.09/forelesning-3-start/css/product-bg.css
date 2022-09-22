@@ -1,0 +1,20 @@
+.product-box {
+    width: 300px;
+}
+
+.product-box__background {
+    height: 300px;
+    background-image: url(../images/vacation/ski-resort.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.product-box__title {
+    background-color: rgba(30, 30, 30, 0.7);
+    padding: 1rem;
+    color: rgb(255, 255, 255);
+}

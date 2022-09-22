@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <header>
+        <h1>Kandidater til Top Gun-roller</h1>
+    </header>
+
+    <main>
+
+        <section>
+
+            <label>Navn</label>
+            <input id="name-txt" type="text">
+
+            <label>Land</label>
+            <input id="country-txt" type="text">
+
+            <input id="save-candidate-btn" type="button" value="Lagre kandidat">
+
+        </section>
+
+        <section id="candidate-output"></section>
+
+    </main>
+
+    <script>
+
+        const nameTxt = document.querySelector("#name-txt");
+        const countryTxt = document.querySelector("#country-txt");
+        const saveCandidateBtn = document.querySelector("#save-candidate-btn");
+        const candidateOutput = document.querySelector("#candidate-output");
+
+        const addCandidate = () => {
+            const _name = nameTxt.value;
+            const _country = countryTxt.value;
+
+            const newCandidate = { name: _name, country: _country };
+
+            let arrayForCandidates;
+
+            if( checkIfArrayExists() === true){
+                // arrayet eksisterer, må bygge det som eksisterer ut
+                const arrayInLocalStorage = localStorage.getItem("candidates");
+                const parsedArrayInLocalStorage = JSON.parse( arrayInLocalStorage );
+                arrayForCandidates = parsedArrayInLocalStorage;
+            }else{
+                // første objekt som lagres, må lage nytt array
+                arrayForCandidates = [];
+            }
+            
+            arrayForCandidates.push( newCandidate );
+            const stringifiedArray = JSON.stringify( arrayForCandidates );
+            localStorage.setItem("candidates", stringifiedArray);            
+        }
+
+        const checkIfArrayExists = () => {
+            const doesExist = localStorage.getItem( "candidates" ) === null ? false : true;
+            return doesExist;
+        }
+
+        (
+            () => {
+                alert( checkIfArrayExists() );
+            }
+        )();
+
+        saveCandidateBtn.addEventListener("click", addCandidate);
+
+    </script>
+    
+    
+    
+</body>
+</html>

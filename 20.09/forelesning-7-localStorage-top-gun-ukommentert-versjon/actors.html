@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="output-div"></div>
+
+    <script>
+
+        /*
+        localStorage.setItem("actor1", "Tom Cruise");
+
+        const actor2 = { name: "Miles Teller", age: 37, country: "USA" };
+        const actor2Stringified = JSON.stringify( actor2 );
+        localStorage.setItem( "actor2", actor2Stringified );
+        */
+
+        const actor2InStorage = localStorage.getItem( "actor2" );
+        const actor2Parsed = JSON.parse( actor2InStorage ); 
+        alert( actor2Parsed.country );
+
+
+    </script>
+
+</body>
+</html>

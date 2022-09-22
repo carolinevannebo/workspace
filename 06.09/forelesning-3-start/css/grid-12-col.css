@@ -1,0 +1,39 @@
+.rows {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 1rem;
+}
+
+/*
+    Mobil
+*/
+
+.col-12 {
+    grid-column: auto / span 12;
+}
+
+.col-6 {
+    grid-column: auto / span 6;
+}
+
+.col-4 {
+    grid-column: auto / span 4;
+}
+
+/*
+    Tablet
+*/
+
+@media screen and (min-width: 768px) {
+    .col-sm-12 {
+        grid-column: auto / span 12;
+    }
+
+    .col-sm-6 {
+        grid-column: auto / span 6;
+    }
+
+    .col-sm-4 {
+        grid-column: auto / span 4;
+    }
+}

@@ -1,0 +1,27 @@
+body{
+    margin: 0;
+    border: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+main{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 1rem;
+}
+
+article{
+    grid-column: auto / span 12;
+}
+
+img{
+    width: 100%;
+}
+
+@media screen and (min-width: 750px){
+
+    article{
+        grid-column: auto / span 6;
+    }
+}
