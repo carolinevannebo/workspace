@@ -8,7 +8,7 @@
     <script defer src="./1.js"></script>
     <title>Document</title>
 </head>
-<body onload="onPageLoad()">
+<body onload="onPageLoad(), clearForm()">
     <h1>Restaurant FavorittMat</h1>
     <form id="user-form">
         <fieldset>
@@ -17,8 +17,8 @@
             <input id="input-name" type="text" required>
             <label for="favorite-food">Favorittmat</label>
             <input id="input-favorite-food" type="text" required>
-            <input id="save-btn" type="button" value="Lagre informasjon" onclick="saveForm()">
-            <button id="delete-btn">Slett informasjon</button>
+            <input id="save-btn" type="button" value="Lagre informasjon" onclick="saveForm(), clearForm()">
+            <input id="delete-btn" type="button" value="Slett informasjon" onclick="deleteForm(), clearForm()">
         </fieldset>
     </form>
     <p id="output-p">Antall verdier i local storage: 0</p>

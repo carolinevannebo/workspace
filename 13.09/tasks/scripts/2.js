@@ -18,13 +18,6 @@ function addDiParma() {
     shoppingCartArray.push(pizzaObject);
     printPizzas();
 }
-/**
-let total = shoppingCartArray.reduce(function (previousValue, pizzaObject) {
-    return previousValue + pizzaObject.price;
-  }, 0);
-*/
-
-  
 
 const printPizzas = () => {
     let htmlTxt = "";
