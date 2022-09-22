@@ -48,7 +48,6 @@ function rejectData() { // is called when input is invalid
 
 function clearForm() { // is called when any button is clicked
     queryElement(USER_FORM).reset();
-    //queryElement(OUTPUT_P).innerHTML = "Antall verdier i local storage: 0";
 }
 
 
