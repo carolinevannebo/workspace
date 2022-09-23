@@ -1,4 +1,3 @@
-const body = document.querySelector('body');
 const userForm = document.querySelector('#user-form');
 const inputTitle = document.querySelector('#input-title');
 const inputAuthor = document.querySelector('#input-author');
@@ -7,23 +6,23 @@ const deleteBtn = document.querySelector('#delete-btn');
 const outputP = document.querySelector("#output-p");
 const outputDiv = document.querySelector('#output-div');
 
-function getValue(key) {
+function getValue(key) { // Function to get value from localStorage - would be in it's own file
     return localStorage.getItem(key);
 }
 
-function setValue(key, value) {
+function setValue(key, value) { // Function to set value in localStorage - would be in it's own file
     localStorage.setItem(key, value);
 }
 
-function deleteKey(key) {
+function deleteKey(key) { // Function to delete a key from localStorage - would be in it's own file
     localStorage.removeItem(key);
 }
 
-function clearForm() {
+function clearForm() { // Function to clear the input fields
     userForm.reset();
 }
 
-function checkLocalStorage() {
+function checkLocalStorage() { // Check if localStorage is empty or not and display message
     outputP.style.color = "black";
     if (localStorage.length > 0) {
         outputP.innerHTML = "Local Storage inneholder informasjon.";
@@ -32,23 +31,23 @@ function checkLocalStorage() {
     }
 }
 
-function rejectData() {
+function rejectData() { // Function to display error message
     const invalidInput = "Vennligst fyll ut både tittel og forfatter.";
     outputP.style.color = "red";
     outputP.innerHTML = invalidInput;
 }
 
 function localStorageArrayExist() {
-    const doesExist = getValue("books") === null ? false : true;
+    const doesExist = getValue("books") === null ? false : true; // If the array does not exist, return false
     return doesExist;
 }
 
 function showBooksFromLocalStorage() {
-    if (localStorage.length > 0) {
-        const bookArray = JSON.parse(getValue("books"));
+    if (localStorage.length > 0) { // If localStorage is not empty, do:
+        const bookArray = JSON.parse(getValue("books")); // Parse the array
         let htmlTxt = "";
 
-        bookArray.forEach(book => {
+        bookArray.forEach(book => { // Loop through the bookArray and create a string with the book info
             htmlTxt += `
                 <article>
                     <h3>${book.title}</h3>
@@ -62,22 +61,21 @@ function showBooksFromLocalStorage() {
 function saveInputToLocalStorage() {
     const title = inputTitle.value;
     const author = inputAuthor.value;
-    const bookObject = {title: title, author: author};
+    const bookObject = {title: title, author: author}; // Create an object with the input values
     let bookArray;
 
-    if (!title || !author) {
-        rejectData();
-    } else if (localStorageArrayExist() === true) {
-        const parsed = JSON.parse(getValue('books'));
-        bookArray = [...parsed, bookObject];
-        console.log(parsed);
+    if (!title || !author) { // Reject if input is empty
+        rejectData(); // Reject data if title or author is empty with a message
+    } else if (localStorageArrayExist() === true) { // If array exist, add to it
+        const parsed = JSON.parse(getValue('books')); // Parse the array
+        bookArray = parsed; // Set the parsed array to the bookArray
     } else {
-        bookArray = [];
+        bookArray = []; // If array does not exist, create an empty array
     }
     
-    bookArray.push(bookObject);
-    const newBookArray = JSON.stringify(bookArray);
-    setValue('books', newBookArray);
+    bookArray.push(bookObject); // Push the bookObject to the bookArray
+    const newBookArray = JSON.stringify(bookArray); // Stringify the bookArray
+    setValue('books', newBookArray); // Set the newBookArray to the localStorage
 
     clearForm();
     checkLocalStorage();
@@ -90,7 +88,7 @@ function deleteLocalStorage() {
     outputDiv.innerHTML = "";
 }
 
-(init = () => {
+(init = () => { // IIFE (Immediately Invoked Function Expression) to initialize the app
     checkLocalStorage();
     showBooksFromLocalStorage();
 })()
@@ -98,6 +96,9 @@ function deleteLocalStorage() {
 saveBtn.addEventListener('click', saveInputToLocalStorage);
 deleteBtn.addEventListener('click', deleteLocalStorage);
 
+
+
+//                  --- THE PROGRESS OF SPAGETTI KODE :)) ---
 /*function init() {
     checkLocalStorage();
     showBooksFromLocalStorage();
