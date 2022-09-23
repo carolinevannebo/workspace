@@ -6,7 +6,7 @@ const SAVE_BTN = "#save-btn";
 const DELETE_BTN = "#delete-btn";
 const OUTPUT_DIV = "#output-div";
 
-function queryElement(selector) {
+function queryElement(selector) { // Function to query an element
     return document.querySelector(selector);
 }
 
@@ -14,7 +14,7 @@ function onPageLoad() { // is called from body onLoad
     const txt = getValue(KEY_TXT);
     const bg = getValue(KEY_BG);
     
-    if(!txt || !bg) {
+    if(!txt || !bg) { // If input is empty, do:
         queryElement(OUTPUT_DIV).innerHTML = "Ingen stil er satt.";
     } else {
         queryElement(OUTPUT_DIV).innerHTML = `Stilen er lagret. Tekstfarge: ${txt} og bakgrunnsfarge: ${bg}.`;
