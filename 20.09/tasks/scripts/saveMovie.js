@@ -1,0 +1,1 @@
+import MovieModule from "./modules/MovieModule";

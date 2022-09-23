@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" defer src="./scripts/deleteMovies.js"></script>
+    <title>My Movies</title>
+</head>
+<body>
+
+    <header>
+        <h1>Lagre en ny film</h1>
+
+        <div>
+            <a href="./saveMovie.html">Lagre en ny film</a>
+            <a href="./showMovies.html">Vis filmer</a>
+            <a href="./deleteMovies.html">Slett en film</a>
+        </div>
+    </header>
+
+    <main>
+        <form id="Slett en film">
+            <label for="id>">Angi id til film</label>
+            <input id="input-id" type="number" name="id">
+            <input id="get-btn" type="button" value="Hent film">
+            <input id="delete-btn" type="button" value="Slett film">
+        </form>
+        
+        <div id="output-div"></div>
+    </main>
+</body>
+</html>
