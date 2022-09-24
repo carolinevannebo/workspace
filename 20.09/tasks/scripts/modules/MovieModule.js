@@ -1,46 +1,52 @@
 const MovieModule = ( () => {
 
-    const moviesArray = [];
-    const inputId = document.querySelector('#id');
-    const inputTitle = document.querySelector('#title');
-    const inputCategory = document.querySelector('#category');
-    const movieObject = {id: inputId.value, title: inputTitle.value, category: inputCategory.value};
+    // Private variables
+    const queryElement = (selector) => {
+        return document.querySelector(selector);
+    }
 
-    const getAll = () => moviesArray.map(
+    //arrays
+    const addMovieObjectToMoviesArray = (array, object) => { //object skal være movieObject
+        array.push(object);
+    }
+    const getAllMoviesFromMoviesArray = (array) => array.map(
         movie => { return {...movie} });
 
-    const getCategory = () => {
-        let moviesBycategoryArray = moviesArray.filter(
-            movie => movie.category === inputCategory);
+    const getAllMoviesFromCategoryArray = (array, inputValue) => { //array refererer til moviesArray
+        let moviesBycategoryArray = array.filter(
+            movie => movie.category === inputValue); //noe annet enn inputCategory.value? prøver dette
         return moviesBycategoryArray;
     };
 
-    const getId = () => {
-        let moviesByIdArray = moviesArray.filter(
-            movie => movie.id === inputId);
+    const getAllMoviesFromIdArray = (array, inputValue) => {
+        let moviesByIdArray = array.filter(
+            movie => movie.id === inputValue);
         return moviesByIdArray;
     }
 
-    const getValue = (key) => {
+    //localstorage
+    const getValueFromLocalStorage = (key) => {
         return localStorage.setItem(key);
     }
 
-    const setValue = (key, value) => {
-        localStorage.setItem(key, value);
+    const setValueToLocalStorage = (key, value) => {
+        return localStorage.setItem(key, value);
     }
 
-    const deleteKey = (key) => {
-        localStorage.removeItem(key);
+    const deleteKeyFromLocalStorage = (key) => {
+        return localStorage.removeItem(key);
     }
 
 
     return {
-        getAll,
-        getCategory,
-        getId,
-        getValue,
-        setValue,
-        deleteKey
+        queryElement,
+        addMovieObjectToMoviesArray,
+        getAllMoviesFromMoviesArray,
+        getAllMoviesFromCategoryArray,
+        getAllMoviesFromIdArray,
+        getValueFromLocalStorage,
+        setValueToLocalStorage,
+        deleteKeyFromLocalStorage
     }
 
 })();
