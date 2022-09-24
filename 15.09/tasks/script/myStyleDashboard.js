@@ -38,14 +38,14 @@ function saveForm() { // is called from button save
     }
 }
 
-function deleteForm() { // is called from button delete
-    deleteKey(KEY_TXT);
+function deleteForm() { // is called from button delete -- burde hatt annet navn, sletter jo ikke skjemaet, sletter keys i localstorage.
+    deleteKey(KEY_TXT); // -- ville gitt mer mening å kalt den deleteKeyFromLocalStorage for å ikke forveksle den med f.eks. key fra form? osv.
     deleteKey(KEY_BG);
     queryElement(OUTPUT_DIV).style.color = "black";
     queryElement(OUTPUT_DIV).innerHTML = "Ingen stil er satt.";
 }
 
-function rejectData() { // is called when input is invalid
+function rejectData() { // is called when input is invalid -- burde hatt annet navn, rejectData er ikke beskrivende nok. burde vært en egen valideringsfunksjon
     const INVALID_INPUT = "Vennligst fyll ut gyldig tekstfarge og bakgrunnsfarge i HEX-format. (f.eks. #000000)";
     queryElement(OUTPUT_DIV).style.color = "red";
     queryElement(OUTPUT_DIV).innerHTML = INVALID_INPUT;

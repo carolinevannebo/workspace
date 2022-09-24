@@ -22,7 +22,7 @@ function clearForm() { // Function to clear the input fields
     userForm.reset();
 }
 
-function checkLocalStorage() { // Check if localStorage is empty or not and display message
+function checkLocalStorage() { // Check if localStorage is empty or not and display message -- pappa ville kalt den isLocalStorageEmpty() og returnert en boolsk verdi, kunne hatt localfunction inni (const arrayfunksjon)
     outputP.style.color = "black";
     if (localStorage.length > 0) {
         outputP.innerHTML = "Local Storage inneholder informasjon.";
