@@ -1,4 +1,4 @@
-import MovieModule from "./modules/MovieModul.js";
+import MovieModule from "./modules/MovieModule.js";
 
 const inputId = MovieModule.queryElement('#input-id');
 const getBtn = MovieModule.queryElement('#get-btn');
@@ -7,9 +7,8 @@ let outputDiv = MovieModule.queryElement('#output-div');
 
 const getMovieById = () => {
     let moviesArray = JSON.parse(MovieModule.getValueFromLocalStorage('movies'));
-    let moviesById = MovieModule.getAllMoviesFromIdArray(moviesArray, inputId.value);
-    let movie = MovieModule.getMoviesSorted(moviesById);
-    return movie;
+    let movieById = MovieModule.getAllMoviesFromIdArray(moviesArray, inputId.value);
+    return movieById;
 }
 
 const showMovie = (array) => {
@@ -22,6 +21,8 @@ const showMovie = (array) => {
         </article>`;
     });
 }
+
+//nå må du bare bruke getMovieById() i en funksjon som fjerner filmobjektet fra moviesArray
 
 getBtn.addEventListener('click', () => {
     showMovie(getMovieById());
