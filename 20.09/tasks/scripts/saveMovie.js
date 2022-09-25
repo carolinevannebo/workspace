@@ -17,7 +17,7 @@ const saveMovie = () => {
     const movieObject = {id: id, title: title, category: category};
 
     MovieModule.addMoviesArrayToLocalStorage(moviesArray, movieObject);
-    outputDiv.innerHTML = "";
+    displaySuccessMessage(title, id, category);
 }
 
 const validateInput = () => {
@@ -28,6 +28,12 @@ const validateInput = () => {
     !id || !title || !category ? displayErrorMessageForMissingFields() :
     moviesArray.some(movie => movie.id === id) ? displayErrorMessageForId() :
     saveMovie();
+}
+
+const displaySuccessMessage = (title, id, category) => {
+    const successMessage = `Filmen ${title} med ID ${id} og sjanger ${category} er lagret.`;
+    outputDiv.style.color = "green";
+    outputDiv.innerHTML = successMessage;
 }
 
 const displayErrorMessageForMissingFields = () => {
