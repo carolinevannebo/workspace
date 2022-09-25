@@ -1,21 +1,39 @@
-import MovieModule from "./modules/MovieModule";
-
-let moviesArray = [];
+import MovieModule from "./modules/MovieModule.js";
 
 const inputCategory = MovieModule.queryElement('#input-category');
 const showAllBtn = MovieModule.queryElement('#show-all-btn');
 const showByCategoryBtn = MovieModule.queryElement('#show-by-category-btn');
-const outputDiv = MovieModule.queryElement('#output-div');
+let outputDiv = MovieModule.queryElement('#output-div');
 
-const showAllMovies = () => {
-    moviesArray = JSON.parse(MovieModule.getValueFromLocalStorage('movies'));
+const getAllMovies = () => {
+    let moviesArray = JSON.parse(MovieModule.getValueFromLocalStorage('movies'));
     let allMovies = MovieModule.getAllMoviesFromMoviesArray(moviesArray);
+    let allMoviesSorted = MovieModule.getMoviesSorted(allMovies);
+    return allMoviesSorted;
+}
+
+const getMoviesByCategory = () => {
+    let moviesArray = JSON.parse(MovieModule.getValueFromLocalStorage('movies'));
+    let moviesByCategory = MovieModule.getAllMoviesFromCategoryArray(moviesArray, inputCategory.value);
+    let moviesByCategorySorted = MovieModule.getMoviesSorted(moviesByCategory);
+    return moviesByCategorySorted;
+}
+
+const showMovies = (array) => {
     outputDiv.innerHTML = "";
-    allMovies.forEach(movie => {
-        outputDiv.innerHTML += `<p>${movie.id} ${movie.title} ${movie.category}</p>`;
-    })
+    array.forEach(movie => {
+        outputDiv.innerHTML += `
+        <article>
+            <h3>${movie.title} (ID: ${movie.id})</h3>
+            <p>${movie.category}</p>
+        </article>`;
+    });
 }
 
 showAllBtn.addEventListener('click', () => {
-    showAllMovies();
+    showMovies(getAllMovies());
+});
+
+showByCategoryBtn.addEventListener('click', () => {
+    showMovies(getMoviesByCategory());
 });

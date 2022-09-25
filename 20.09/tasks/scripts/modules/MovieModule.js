@@ -24,6 +24,13 @@ const MovieModule = ( () => {
         return moviesByIdArray;
     }
 
+    const getMoviesSorted = (array) => {
+        let sortedMovies = array.sort(
+            (movie1, movie2) => movie1.id > movie2.id ? 1 : -1
+        );
+        return sortedMovies;
+    }
+
     //localstorage
     const getValueFromLocalStorage = (key) => {
         return localStorage.getItem(key);
@@ -51,6 +58,7 @@ const MovieModule = ( () => {
         getAllMoviesFromMoviesArray,
         getAllMoviesFromCategoryArray,
         getAllMoviesFromIdArray,
+        getMoviesSorted,
         getValueFromLocalStorage,
         setValueToLocalStorage,
         addMoviesArrayToLocalStorage,
