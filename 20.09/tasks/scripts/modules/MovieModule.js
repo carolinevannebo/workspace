@@ -36,15 +36,21 @@ const MovieModule = ( () => {
         return localStorage.getItem(key);
     }
 
+    const checkLocalStorage = (array) => {
+        const doesArrayExist = getAllMoviesFromMoviesArray(array) === null ? false : true;
+        return doesArrayExist;
+    }
+
     const setValueToLocalStorage = (key, value) => {
         return localStorage.setItem(key, value);
     }
 
     const addMoviesArrayToLocalStorage = (array, object) => {
-        addMovieObjectToMoviesArray(array, object);
-        getAllMoviesFromMoviesArray(array);
-        setValueToLocalStorage('movies', JSON.stringify(array));
-        array = JSON.parse(getValueFromLocalStorage('movies'));
+            addMovieObjectToMoviesArray(array, object);
+            getAllMoviesFromMoviesArray(array);
+            setValueToLocalStorage('movies', JSON.stringify(array));
+            array = JSON.parse(getValueFromLocalStorage('movies'));
+        
     }
 
     const deleteKeyFromLocalStorage = (key) => {
@@ -60,6 +66,7 @@ const MovieModule = ( () => {
         getAllMoviesFromIdArray,
         getMoviesSorted,
         getValueFromLocalStorage,
+        checkLocalStorage,
         setValueToLocalStorage,
         addMoviesArrayToLocalStorage,
         deleteKeyFromLocalStorage

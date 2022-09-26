@@ -20,7 +20,10 @@ const getMoviesByCategory = () => {
 }
 
 const showMovies = (array) => {
+    outputDiv.style.color = 'black';
     outputDiv.innerHTML = "";
+
+    !inputCategory.value || array.length === 0 ? displayErrorMessage() :
     array.forEach(movie => {
         outputDiv.innerHTML += `
         <article>
@@ -28,6 +31,11 @@ const showMovies = (array) => {
             <p>${movie.category}</p>
         </article>`;
     });
+}
+
+const displayErrorMessage = () => {
+    outputDiv.style.color = 'red';
+    outputDiv.innerHTML = "Ingen filmer i den kategorien.";
 }
 
 showAllBtn.addEventListener('click', () => {

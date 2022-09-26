@@ -42,7 +42,7 @@ const displaySuccessMessage = (title, id, category) => {
 
 const displayErrorMessage = () => {
     outputDiv.style.color = 'red';
-    outputDiv.innerHTML = "No movie with that ID";
+    outputDiv.innerHTML = "Ingen filmer med angitt ID.";
 }
 
 getBtn.addEventListener('click', () => {

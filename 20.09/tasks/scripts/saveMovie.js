@@ -10,12 +10,12 @@ let outputDiv = MovieModule.queryElement('#output-div');
 
 
 const saveMovie = () => {
-    //bør legge til en sjekk på om id allerede finnes i arrayet
     const id = inputId.value;  
     const title = inputTitle.value;
     const category = inputCategory.value;
     const movieObject = {id: id, title: title, category: category};
 
+    //bør sjekke om moviesArray eksisterer i localstorage, egen funksjon?
     MovieModule.addMoviesArrayToLocalStorage(moviesArray, movieObject);
     displaySuccessMessage(title, id, category);
 }
@@ -27,24 +27,25 @@ const validateInput = () => {
 
     !id || !title || !category ? displayErrorMessageForMissingFields() :
     moviesArray.some(movie => movie.id === id) ? displayErrorMessageForId() :
-    saveMovie();
+
+    saveMovie(); //vil legge til i localstorage, ikke oppdatere
 }
 
 const displaySuccessMessage = (title, id, category) => {
     const successMessage = `Filmen ${title} med ID ${id} og sjanger ${category} er lagret.`;
-    outputDiv.style.color = "green";
+    outputDiv.style.color = 'green';
     outputDiv.innerHTML = successMessage;
 }
 
 const displayErrorMessageForMissingFields = () => {
-    const invalidInput = "Vennligst fyll ut alle feltene";
-    outputDiv.style.color = "red";
+    const invalidInput = "Vennligst fyll ut alle feltene.";
+    outputDiv.style.color = 'red';
     outputDiv.innerHTML = invalidInput;
 }
 // bør gå an å samle disse to funksjonene til en
 const displayErrorMessageForId = () => {
-    const invalidInput = "Id finnes allerede";
-    outputDiv.style.color = "red";
+    const invalidInput = "ID finnes allerede.";
+    outputDiv.style.color = 'red';
     outputDiv.innerHTML = invalidInput;
 }
 
