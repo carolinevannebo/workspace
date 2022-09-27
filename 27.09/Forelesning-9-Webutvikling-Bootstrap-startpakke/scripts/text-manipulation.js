@@ -6,6 +6,7 @@ const textOutput = document.querySelector("#text-output");
 
 const reverseText = () => {
     /* Gjøre bruk av TextManipulationModule her. */
+    textOutput.innerHTML = TextManipulationModule.reverseText(textTxt.value);
 }
 
 reverseTextBtn.addEventListener("click", reverseText);

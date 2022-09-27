@@ -52,3 +52,8 @@ getBtn.addEventListener('click', () => {
 deleteBtn.addEventListener('click', () => {
     removeMovie();
 });
+
+/** Kan du skrive det på en annen måte?
+ * - Prøv å korte ned displayErrorMessage funksjonene dine til en med parametere
+ * - Muterer du arrayet? Jeg tror det ja
+ */
