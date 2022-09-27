@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer type="module" src="./scripts/saveGames.js"></script>
+    <title>Save New Game</title>
+</head>
+<body>
+
+    <header>
+        <h1>Save New Game</h1>
+    </header>
+
+    <main>
+        <section>
+            <form id="save-form">
+                <fieldset>
+                    <legend>Fill out Information</legend>
+            
+                    <label for="id">ID</label>
+                    <input type="number" id="input-id" name="id" placeholder="Enter ID">
+            
+                    <label for="title" id="title">Title</label>
+                    <input type="text" id="input-title" name="title" placeholder="Enter Title">
+            
+                    <label for="price">Price</label>
+                    <input type="number" id="input-price" name="price" placeholder="Enter Price">
+            
+                    <label for="console">Console</label>
+                    <input type="text" id="input-console" name="console" placeholder="Enter Console">
+            
+                    <input type="button" id="save-btn" value="Save">
+                </fieldset>
+            </form>
+        </section>
+
+        <section>
+            <div id="output-div"></div>
+        </section>
+    </main>
+    
+</body>
+</html>
