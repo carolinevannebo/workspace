@@ -7,11 +7,17 @@ const GameModule = ( () => {
 
     //Arrays
     const addGameObjectToGamesArray = (array, object) => { //sender objektet inn i arrayet
-        array.push(object);
+        return array.push(object);
     }
 
     const getAllGamesFromGamesArray = (array) => array.map( //henter alle objekter fra arrayet
         game => { return {...game} });
+
+    const getAllGamesFromIdArray = (array, inputValue) => {
+        let gamesByIdArray = array.filter(
+            game => game.id === inputValue);
+            return gamesByIdArray;
+    }
 
     const getGamesSortedByPrice = (array) => { //returnerer et nytt array som har sortert spill basert på pris fra lav til høy
         let sortedGames = array.sort(
@@ -34,11 +40,15 @@ const GameModule = ( () => {
         return localStorage.setItem(key, value);
     }
 
-    const addGamesArrayToLocalStorage = (array, object) => { //legger til ett objekt i et array og legger arrayet til i localstorage
-            addGameObjectToGamesArray(array, object); //legger til objektet i arrayet
-            getAllGamesFromGamesArray(array); //henter ut alle objektene fra arrayet
-            setValueToLocalStorage('Games', JSON.stringify(array)); //legger arrayet til i localstorage
-            array = JSON.parse(getValueFromLocalStorage('Games')); //setter arrayet lik verdien til keyen 'Games' i localstorage
+    const createOrUseArray = (array) => { //legger til ett objekt i et array og legger arrayet til i localstorage
+        let newGamesArray;
+        checkLocalStorage(array) === true ? newGamesArray = JSON.parse(getValueFromLocalStorage('Games')) : newGamesArray = []; //sjekker om arrayet eksisterer i localstorage, hvis det gjør det så henter den ut arrayet og parser det, hvis ikke så lager den et tomt array
+        return newGamesArray;
+    }
+
+    const addGamesArrayToLocalStorage = (array, object) => {
+        addGameObjectToGamesArray(array, object); //legger til objektet i arrayet
+        setValueToLocalStorage('Games', JSON.stringify(array)); //legger arrayet til i localstorage
     }
 
     const deleteKeyFromLocalStorage = (key) => { //sletter en key fra localstorage
@@ -49,10 +59,12 @@ const GameModule = ( () => {
         queryElement,
         addGameObjectToGamesArray,
         getAllGamesFromGamesArray,
+        getAllGamesFromIdArray,
         getGamesSortedByPrice,
         getValueFromLocalStorage,
         checkLocalStorage,
         setValueToLocalStorage,
+        createOrUseArray,
         addGamesArrayToLocalStorage,
         deleteKeyFromLocalStorage
     }

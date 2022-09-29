@@ -50,7 +50,6 @@ const MovieModule = ( () => {
             getAllMoviesFromMoviesArray(array);
             setValueToLocalStorage('movies', JSON.stringify(array));
             array = JSON.parse(getValueFromLocalStorage('movies'));
-        
     }
 
     const deleteKeyFromLocalStorage = (key) => {
