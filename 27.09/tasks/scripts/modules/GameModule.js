@@ -26,6 +26,12 @@ const GameModule = ( () => {
         return sortedGames;
     }
 
+    const getGamesLessThanPrice = (array, inputValue) => { //returnerer et nytt array som har spill som er billigere enn inputverdien
+        let gamesLessThanPrice = array.filter(
+            game => game.price < inputValue);
+        return gamesLessThanPrice;
+    }
+
     //LocalStorage
     const getValueFromLocalStorage = (key) => { //henter ut verdien til en key fra localstorage, denne verdien skal da være et array
         return localStorage.getItem(key);
@@ -61,6 +67,7 @@ const GameModule = ( () => {
         getAllGamesFromGamesArray,
         getAllGamesFromIdArray,
         getGamesSortedByPrice,
+        getGamesLessThanPrice,
         getValueFromLocalStorage,
         checkLocalStorage,
         setValueToLocalStorage,
